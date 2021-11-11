@@ -80,7 +80,7 @@ app.get('/reload', function (req, res) {
 
         console.log('reloaded');
 
-        res.cookie('key', config.key);
+        res.cookie('key', config.key, { maxAge: 60000 * 60 * 24 * 365 });
         return res.status(200).json('reloaded');
     }
     return res.status(401).json('nope lol');
