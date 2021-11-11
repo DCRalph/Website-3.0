@@ -67,11 +67,11 @@ app.get('/', function (req, res) {
 });
 
 app.get("/icon.png", (req, res) => {
-    return res.status(200).sendFile(__dirname + '/files/icon.png');
+    return res.status(200).sendFile(__dirname + '/files/logo.png');
 })
 
 app.get("/favicon.ico", (req, res) => {
-    return res.status(200).sendFile(__dirname + '/files/icon.png');
+    return res.status(200).sendFile(__dirname + '/files/logo.png');
 })
 
 app.get("/files/:file(*)", (req, res) => {
