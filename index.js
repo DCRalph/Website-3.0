@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 const fs = require('fs');
 
 const ejs = require('ejs');
@@ -8,6 +11,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 const showdown = require('showdown');
+
+const config = require('./config.json')
 
 const classMap = {
     img: 'block my-4 w-2/3 lg:w-full mx-auto rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2',
@@ -37,33 +42,49 @@ const conv = new showdown.Converter({
 //     });
 // });
 
+var about = getAbout();
+var projects = getProjects();
+
 function getAbout() {
-    let abouts = [];
+    let arr = [];
     fs.readdirSync('./posts/about').forEach(file => {
         const data = fs.readFileSync(`./posts/about/${file}`, 'utf-8');
         const html = conv.makeHtml(data);
-        abouts.unshift({ content: html, title: file })
+        arr.unshift({ content: html, title: file })
     });
-    return abouts;
+    return arr;
 }
 
 function getProjects() {
-    let projects = [];
+    let arr = [];
     fs.readdirSync('./posts/projects').forEach(file => {
         const data = fs.readFileSync(`./posts/projects/${file}`, 'utf-8');
         const html = conv.makeHtml(data);
-        projects.unshift({ content: html, title: file })
+        arr.unshift({ content: html, title: file })
     });
-    return projects;
+    return arr;
 }
 
 app.get('/', function (req, res) {
 
-    var about = getAbout();
-    var projects = getProjects();
     var data = { about, projects }
 
     res.render('index', data);
+});
+
+app.get('/reload', function (req, res) {
+
+    if (req.cookies['key'] == config.key || req.query.key == config.key) {
+        abouts = getAbout();
+        projects = getProjects();
+
+        console.log('reloaded');
+
+        res.cookie('key', config.key);
+        return res.status(200).json('reloaded');
+    }
+    return res.status(401).json('nope lol');
+
 });
 
 app.get("/icon.png", (req, res) => {
@@ -87,6 +108,6 @@ app.get("/*", (req, res) => {
     return res.status(404).json('404 Not Found')
 })
 
-var server = app.listen(4103, () => {
+var server = app.listen(config.port, () => {
     console.log(server.address());
 })
