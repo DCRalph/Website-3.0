@@ -42,10 +42,19 @@ const conv = new showdown.Converter({
 //     });
 // });
 
+fs.watch('./posts/about', (eventType, filename) => {
+    about = getAbout();
+});
+
+fs.watch('./posts/projects', (eventType, filename) => {
+    projects = getProjects();
+});
+
 var about = getAbout();
 var projects = getProjects();
 
 function getAbout() {
+    console.log('updates about');
     let arr = [];
     fs.readdirSync('./posts/about').forEach(file => {
         const data = fs.readFileSync(`./posts/about/${file}`, 'utf-8');
@@ -56,6 +65,7 @@ function getAbout() {
 }
 
 function getProjects() {
+    console.log('updates projects');
     let arr = [];
     fs.readdirSync('./posts/projects').forEach(file => {
         const data = fs.readFileSync(`./posts/projects/${file}`, 'utf-8');
@@ -72,20 +82,20 @@ app.get('/', function (req, res) {
     res.render('index', data);
 });
 
-app.get('/reload', function (req, res) {
+// app.get('/reload', function (req, res) {
 
-    if (req.cookies['key'] == config.key || req.query.key == config.key) {
-        abouts = getAbout();
-        projects = getProjects();
+//     if (req.cookies['key'] == config.key || req.query.key == config.key) {
+//         abouts = getAbout();
+//         projects = getProjects();
 
-        console.log('reloaded');
+//         console.log('reloaded');
 
-        res.cookie('key', config.key);
-        return res.status(200).json('reloaded');
-    }
-    return res.status(401).json('nope lol');
+//         res.cookie('key', config.key);
+//         return res.status(200).json('reloaded');
+//     }
+//     return res.status(401).json('nope lol');
 
-});
+// });
 
 app.get("/icon.png", (req, res) => {
     return res.status(200).sendFile(__dirname + '/files/logo.png');

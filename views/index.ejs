@@ -109,7 +109,7 @@
 <body class="bg-gray-800 antialiased">
 
 
-    <nav class="flex sm:hidden fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-50">
+    <nav class="flex sm:hidden fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-10">
         <div class="flex justify-evenly items-center w-full h-full bg-gray-700 rounded-2xl px-4 shadow-lg">
             <div class="flex items-center flex-col">
                 <a href="#home">
@@ -156,14 +156,12 @@
 
     </nav>
 
-    <div id="toTop"
-        class="fixed hidden bottom-8 right-2 rounded-full flex justify-center items-center text-2xl bg-white opacity-50 w-12 h-12 z-10">
-        <a href="#home">
-            <span class="material-icons">
-                expand_less
-            </span>
-        </a>
-    </div>
+    <a href="#home" id="toTop"
+        class="fixed hidden bottom-8 right-2 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-white opacity-50 w-12 h-12 z-20">
+        <span class="material-icons">
+            expand_less
+        </span>
+    </a>
 
     <nav class="hidden sm:flex container h-20 justify-between absolute top-0 left-1/2 transform -translate-x-1/2 ">
         <a class="flex items-center h-full transition-all duration-300 transform hover:-translate-y-2" href="/">
@@ -260,7 +258,7 @@
                         style="background-image:url(/files/hand.png)">
                     </div>
 
-                    <div class="w-full h-full bg-gray-900 rounded-2xl p-8 z-1 relative">
+                    <div class="w-full h-full bg-gray-900 rounded-2xl p-8 z-10 relative">
                         <p class="text-white text-lg text-center sm:text-left">
                             I'm active on multiple Social Media platforms.
                         </p>
