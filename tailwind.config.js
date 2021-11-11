@@ -1,11 +1,16 @@
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./views/*'],
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#da22ff',
+        secondary: '#9733ee',
+      }
+    },
   },
   variants: {
     extend: {},

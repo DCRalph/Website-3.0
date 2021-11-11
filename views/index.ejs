@@ -111,44 +111,45 @@
 
     <nav class="flex sm:hidden fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-10">
         <div class="flex justify-evenly items-center w-full h-full bg-gray-700 rounded-2xl px-4 shadow-lg">
-            <div class="flex items-center flex-col">
+
+            <div class="flex items-center flex-col text-2xl hover_thing">
                 <a href="#home">
-                    <div class="flex justify-center items-center text-white text-2xl">
+                    <div class="flex justify-center items-center">
                         <span class="material-icons">
                             home
                         </span>
                     </div>
-                    <div class="text-white text-sm pt-1">Home</div>
+                    <div class="text-sm pt-1">Home</div>
                 </a>
             </div>
-            <div class="flex items-center flex-col">
+            <div class="flex items-center flex-col text-2xl hover_thing">
                 <a href="#about">
-                    <div class="flex justify-center items-center text-white text-2xl">
+                    <div class="flex justify-center items-center">
                         <span class="material-icons">
                             info
                         </span>
                     </div>
-                    <div class="text-white text-sm pt-1">About</div>
+                    <div class="text-sm pt-1">About</div>
                 </a>
             </div>
-            <div class="flex items-center flex-col">
+            <div class="flex items-center flex-col text-2xl hover_thing">
                 <a href="#projects">
-                    <div class="flex justify-center items-center text-white text-2xl">
+                    <div class="flex justify-center items-center">
                         <span class="material-icons">
                             emoji_objects
                         </span>
                     </div>
-                    <div class="text-white text-sm pt-1">Projects</div>
+                    <div class=" text-sm pt-1">Projects</div>
                 </a>
             </div>
-            <div class="flex items-center flex-col">
+            <div class="flex items-center flex-col text-2xl hover_thing">
                 <a href="#socials">
-                    <div class="flex justify-center items-center text-white text-2xl">
+                    <div class="flex justify-center items-center">
                         <span class="material-icons">
                             share
                         </span>
                     </div>
-                    <div class="text-white text-sm pt-1">Socials</div>
+                    <div class="text-sm pt-1">Socials</div>
                 </a>
             </div>
 
@@ -158,7 +159,7 @@
 
     <a href="#home" id="toTop"
         class="fixed hidden bottom-8 right-2 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-white opacity-50 w-12 h-12 z-20">
-        <span class="material-icons">
+        <span class="material-icons hover:animate-bounce">
             expand_less
         </span>
     </a>
@@ -170,11 +171,12 @@
             <p class="text-white font-bold font-heading text-lg pl-4">William Giles</p>
         </a>
         <div class="flex items-center">
-            <div
-                class="text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
-                <a href="#home">Home</a>
-            </div>
-            <div
+
+            <a href="#home" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Home</a>
+            <a href="#about" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">About</a>
+            <a href="#projects" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Projects</a>
+            <a href="#socials" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Socials</a>
+            <!-- <div
                 class="text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
                 <a href="#about">About</a>
             </div>
@@ -185,14 +187,14 @@
             <div
                 class=" text-white font-bold text-lg px-6 py- transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
                 <a href="#socials">Socials</a>
-            </div>
+            </div> -->
         </div>
     </nav>
 
 
     <div class="bg-dark bg-cover bg-center" id="home" style="background-image:url(/files/hero.svg)">
         <div class="container py-20 sm:py-40">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center ">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center">
                 William Giles
             </h1>
             <h2 class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4">
