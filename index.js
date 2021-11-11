@@ -66,6 +66,14 @@ app.get('/', function (req, res) {
     res.render('index', data);
 });
 
+app.get("/icon.png", (req, res) => {
+    return res.status(200).sendFile(__dirname + '/files/icon.png');
+})
+
+app.get("/favicon.ico", (req, res) => {
+    return res.status(200).sendFile(__dirname + '/files/icon.png');
+})
+
 app.get("/files/:file(*)", (req, res) => {
     let path = __dirname + '/files/' + req.params.file
 
