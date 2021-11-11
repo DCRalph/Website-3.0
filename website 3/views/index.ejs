@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="/files/tailwind.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <style>
+        @font-face {
+            font-family: 'Gobold';
+            src: url('/files/font/Gobold.ttf.woff') format('woff'),
+                url('/files/font/Gobold.ttf.svg#Gobold') format('svg'),
+                url('/files/font/Gobold.ttf.eot'),
+                url('/files/font/Gobold.ttf.eot?#iefix') format('embedded-opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Gobold';
+            scroll-behavior: smooth;
+        }
+
+        .bg-dark {
+            --tw-bg-opacity: 1;
+            background-color: rgba(22, 36, 47, var(--tw-bg-opacity))
+        }
+
+        .bg-lighter {
+            --tw-bg-opacity: 1;
+            background-color: rgba(41, 63, 81, var(--tw-bg-opacity))
+        }
+
+        .bg-section {
+            --tw-bg-opacity: 1;
+            background-color: rgba(21, 33, 44, var(--tw-bg-opacity))
+        }
+
+        .bg-highlight {
+            --tw-bg-opacity: 1;
+            background-color: rgba(232, 145, 218, var(--tw-bg-opacity))
+        }
+
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+
+        .animatable {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: animateDisplay;
+            animation-play-state: paused;
+            animation-duration: .5s;
+            animation-delay: delay;
+            animation-fill-mode: forwards;
+        }
+
+        .play {
+            animation-play-state: running !important;
+        }
+
+        @keyframes animateDisplay {
+            0% {
+                opacity: 0;
+                transform: translateY(25px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(0)
+            }
+        }
+    </style>
+
+    <title>hmmm</title>
+</head>
+
+<body class="bg-gray-800 antialiased">
+
+
+    <nav class="flex sm:hidden fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-50">
+        <div class="flex justify-evenly items-center w-full h-full bg-gray-700 rounded-2xl px-4 shadow-lg">
+            <div class="flex items-center flex-col">
+                <a href="#home">
+                    <div class="flex justify-center items-center text-white text-2xl">
+                        <span class="material-icons">
+                            home
+                        </span>
+                    </div>
+                    <div class="text-white text-sm pt-1">Home</div>
+                </a>
+            </div>
+            <div class="flex items-center flex-col">
+                <a href="#about">
+                    <div class="flex justify-center items-center text-white text-2xl">
+                        <span class="material-icons">
+                            info
+                        </span>
+                    </div>
+                    <div class="text-white text-sm pt-1">About</div>
+                </a>
+            </div>
+            <div class="flex items-center flex-col">
+                <a href="#projects">
+                    <div class="flex justify-center items-center text-white text-2xl">
+                        <span class="material-icons">
+                            emoji_objects
+                        </span>
+                    </div>
+                    <div class="text-white text-sm pt-1">Projects</div>
+                </a>
+            </div>
+            <div class="flex items-center flex-col">
+                <a href="#socials">
+                    <div class="flex justify-center items-center text-white text-2xl">
+                        <span class="material-icons">
+                            share
+                        </span>
+                    </div>
+                    <div class="text-white text-sm pt-1">Socials</div>
+                </a>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <div id="toTop"
+        class="fixed hidden bottom-8 right-2 rounded-full flex justify-center items-center text-2xl bg-white opacity-50 w-12 h-12 z-10">
+        <a href="#home">
+            <span class="material-icons">
+                expand_less
+            </span>
+        </a>
+    </div>
+
+    <nav class="hidden sm:flex container h-20 justify-between absolute top-0 left-1/2 transform -translate-x-1/2 ">
+        <a class="flex items-center h-full transition-all duration-300 transform hover:-translate-y-2" href="/">
+            <div class="w-16 h-16 rounded bg-contain" style="background-image:url(/files/logo.png)">
+            </div>
+            <p class="text-white font-bold font-heading text-lg pl-4">William Giles</p>
+        </a>
+        <div class="flex items-center">
+            <div
+                class="text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
+                <a href="#home">Home</a>
+            </div>
+            <div
+                class="text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
+                <a href="#about">About</a>
+            </div>
+            <div
+                class=" text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
+                <a href="#projects">Projects</a>
+            </div>
+            <div
+                class=" text-white font-bold text-lg px-6 py- transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
+                <a href="#socials">Socials</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="bg-dark bg-cover bg-center" id="home" style="background-image:url(/files/hero.svg)">
+        <div class="container py-20 sm:py-40">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center ">
+                William Giles
+            </h1>
+            <h2 class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4">
+                Web Develoment • Home Automation • Iot
+            </h2>
+        </div>
+    </div>
+
+    <section class="bg-section py-10 sm:py-16 md:py-24" id="about">
+        <div class="container animatable">
+            <div class="flex flex-col items-center w-full m-auto">
+
+                <h2 class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                    About
+                </h2>
+
+                <div class="flex flex-wrap justify-center space-x-4 w-full mt-8">
+
+                    <% about.forEach(function(post){ %>
+                        <div class="w-full lg:w-2/5 mt-2 mb-8">
+                            <%- post.content %>
+                        </div>
+                        <% }); %>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-section py-10 sm:py-16 md:py-24" id="projects">
+        <div class="container animatable">
+            <div class="flex flex-col items-center w-full m-auto">
+
+                <h2 class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                    Projects
+                </h2>
+
+                <div class="flex flex-wrap justify-center space-x-4 w-full mt-8">
+
+
+                    <% projects.forEach(function(post){ %>
+                        <div class="w-full lg:w-2/5 mt-2 mb-8">
+                            <%- post.content %>
+                        </div>
+                        <% }); %>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-section py-10 sm:py-16 md:py-24" id="socials">
+        <div class="container animatable">
+            <div class="flex flex-col items-center w-full max-w-7xl m-auto">
+
+                <h2 class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                    Let's connect
+                </h2>
+
+                <div
+                    class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 bg-gray-700 rounded-3xl relative items-center mt-8">
+                    <div class="w-72 h-full bg-center bg-no-repeat bg-contain absolute left-12 top-0 z-0 hidden sm:block"
+                        style="background-image:url(/files/hand.png)">
+                    </div>
+
+                    <div class="w-full h-full bg-gray-900 rounded-2xl p-8 z-1 relative">
+                        <p class="text-white text-lg text-center sm:text-left">
+                            I'm active on multiple Social Media platforms.
+                        </p>
+
+                        <div class="flex flex-wrap w-full justify-center items-center pt-8">
+
+                            <a href="mailto:William@williamgiles.co.nz?subject=Contact from williamgiles.co.nz"
+                                rel="noreferrer" target="_blank">
+                                <div class=" w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/mail.png)">
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCJ2jGzghu5ChWSXkwn63FEQ" rel="noreferrer"
+                                target="_blank">
+                                <div class=" w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/yt.png)">
+                                </div>
+                            </a>
+                            <a href="https://twitter.com/Dcralph_" rel="noreferrer" target="_blank">
+                                <div class=" w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/twitter.svg)">
+                                </div>
+                            </a>
+                            <a href="https://www.facebook.com/william.giles.948/" rel="noreferrer" target="_blank">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/facebook.svg)">
+                                </div>
+                            </a>
+                            <a href="https://github.com/DCRalph" rel="noreferrer" target="_blank">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/github.png)">
+                                </div>
+                            </a>
+                            <a href="https://discord.com/invite/5Kz7DsERx4" rel="noreferrer" target="_blank">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
+                                    style="background-image:url(/files/discord.png)">
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800">
+        <div class="container pb-24 sm:pb-0">
+            <div class="flex flex-col sm:flex-row">
+                <div class="flex w-full py-8 justify-evenly justify-center">
+                    <div class="flex items-center space-x-4">
+                        <img src="/files/logo.png" alt="" class="w-16 h-16 bg-contain rounded">
+                        <div class="text-gray-100 font-body text-xl">William Giles</div>
+                    </div>
+                    <!-- <div class="flex items-center">
+                        <div class="text-gray-100 font-body text-xl">Contact:</div>
+                        <div class="text-gray-100 font-body">William@williamgiles.co.nz</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="flex h-16 items-center justify-center border-gray-600 border-t">
+                <div class="text-gray-400 text-center font-body">
+                    © Copyright <span id="year">2021</span> William Giles.
+                    • All rights reserved.
+                    • V10
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('play');
+                    }, 200);
+                }
+            });
+        });
+
+        document.querySelectorAll('.animatable').forEach(element => {
+            observer.observe(element);
+        });
+
+        var toTop = document.getElementById("toTop");
+
+        document.onscroll = () => {
+            // console.log(window.pageYOffset);
+            if (window.pageYOffset >= 200) {
+                toTop.classList.remove('hidden');
+            } else {
+                toTop.classList.add('hidden');
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
