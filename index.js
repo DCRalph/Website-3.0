@@ -58,7 +58,7 @@ function getAbout() {
     let arr = [];
     fs.readdirSync('./posts/about').forEach(file => {
         const data = fs.readFileSync(`./posts/about/${file}`, 'utf-8');
-        if(data.split('\n')[0] != 'hide'){
+        if (data.split('\n')[0] != 'hide' && file.split('.')[1] == 'md') {
             const html = conv.makeHtml(data);
             arr.unshift({ content: html, title: file })
         }
@@ -71,7 +71,7 @@ function getProjects() {
     let arr = [];
     fs.readdirSync('./posts/projects').forEach(file => {
         const data = fs.readFileSync(`./posts/projects/${file}`, 'utf-8');
-        if(data.split('\n')[0] != 'hide'){
+        if (data.split('\n')[0] != 'hide' && file.split('.')[1] == 'md') {
             const html = conv.makeHtml(data);
             arr.unshift({ content: html, title: file })
         }
