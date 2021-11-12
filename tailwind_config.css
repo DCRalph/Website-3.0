@@ -6,3 +6,7 @@
 	@apply bg-clip-text text-transparent bg-white bg-gradient-to-br hover:from-primary hover:to-secondary;
 	@apply transition-all duration-300 transform hover:-translate-y-2;
 }
+
+.hover_trans {
+	@apply transition-all duration-300 transform hover:-translate-y-2;
+}
