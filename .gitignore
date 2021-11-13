@@ -2,3 +2,4 @@ config.json
 node_modules
 posts/about/
 posts/projects/
+.DS_Store
