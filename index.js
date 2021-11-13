@@ -56,7 +56,14 @@ var projects = getProjects();
 function getAbout() {
     console.log('updates about');
     let arr = [];
-    fs.readdirSync('./posts/about').forEach(file => {
+    files = fs.readdirSync('./posts/about').sort((a, b) => {
+        a = a.split('.')[0];
+        b = b.split('.')[0];
+        return a - b;
+
+    });
+
+    files.forEach(file => {
         const data = fs.readFileSync(`./posts/about/${file}`, 'utf-8');
         if (data.split('\n')[0] != 'hide' && file.split('.')[1] == 'md') {
             const html = conv.makeHtml(data);
@@ -69,7 +76,14 @@ function getAbout() {
 function getProjects() {
     console.log('updates projects');
     let arr = [];
-    fs.readdirSync('./posts/projects').forEach(file => {
+    files = fs.readdirSync('./posts/projects').sort((a, b) => {
+        a = a.split('.')[0];
+        b = b.split('.')[0];
+        return a - b;
+
+    });
+
+    files.forEach(file => {
         const data = fs.readFileSync(`./posts/projects/${file}`, 'utf-8');
         if (data.split('\n')[0] != 'hide' && file.split('.')[1] == 'md') {
             const html = conv.makeHtml(data);

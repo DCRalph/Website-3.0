@@ -1,5 +1,5 @@
 config.json
 node_modules
-posts/about/
-posts/projects/
+posts/about/*
+posts/projects/*
 .DS_Store
