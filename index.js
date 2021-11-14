@@ -60,7 +60,6 @@ function getAbout() {
         a = a.split('.')[0];
         b = b.split('.')[0];
         return a - b;
-
     });
 
     files.forEach(file => {
@@ -80,7 +79,6 @@ function getProjects() {
         a = a.split('.')[0];
         b = b.split('.')[0];
         return a - b;
-
     });
 
     files.forEach(file => {
