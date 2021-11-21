@@ -9,11 +9,16 @@ module.exports = {
       colors: {
         primary: '#da22ff',
         secondary: '#9733ee',
-      }
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+
+    },
   },
-  plugins: [],
+  plugins: [
+    // require('@tailwindcss/typography')
+  ],
 }
+// npx tailwindcss -i ./tailwind_config.css -o ./files/tailwind.css
