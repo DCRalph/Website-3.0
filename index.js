@@ -15,9 +15,10 @@ const showdown = require('showdown');
 const config = require('./config.json')
 
 const classMap = {
-    img: 'block my-4 w-2/3 lg:w-full mx-auto rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2',
-    h1: 'text-white flex justify-center pb-3 text-xl sm:text-3xl font-bold font-heading text-center sm:text-left',
-    p: 'text-white text-md sm:text-lg font-body text-center sm:text-left mt-2'
+    img: 'rounded-xl transition-all duration-300 transform hover:-translate-y-2',
+    // img: 'block my-4 w-2/3 lg:w-full mx-auto rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2',
+    // h1: 'text-white flex justify-center pb-3 text-xl sm:text-3xl font-bold font-heading text-center sm:text-left',
+    // p: 'text-white text-md sm:text-lg font-body text-center sm:text-left mt-2'
 }
 
 const bindings = Object.keys(classMap)
