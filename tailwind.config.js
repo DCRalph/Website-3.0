@@ -1,11 +1,13 @@
 module.exports = {
+  // mode: 'jit',
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./views/*'],
   },
   darkMode: 'class',
   theme: {
     extend: {
+
       colors: {
         primary: '#da22ff',
         secondary: '#9733ee',
@@ -86,6 +88,7 @@ module.exports = {
     extend: {
       typography: ['dark'],
       animation: ['hover', 'group-hover'],
+      ringWidth: ['hover'],
     },
   },
   plugins: [

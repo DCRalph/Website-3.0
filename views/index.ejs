@@ -113,7 +113,8 @@
 <body class="bg-gray-800 antialiased dark">
 
 
-    <nav class="flex sm:hidden fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-10">
+    <nav
+        class="flex fixed justify-evenly items-center w-full h-28 p-4 px-16 bottom-0 z-10 transition-all duration-300 transform translate-y-0 sm:translate-y-28 ">
         <div class="flex justify-evenly items-center w-full h-full bg-gray-700 rounded-2xl px-4 shadow-lg">
 
             <div class="flex items-center flex-col text-2xl text-white group hover_trans">
@@ -177,8 +178,8 @@
     </nav>
 
     <a href="#home" id="toTop"
-        class="fixed bottom-8 right-2 transition-all duration-300 transform translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-white opacity-50 hover:bg-blue-600 hover:opacity-75 w-12 h-12 z-20 group">
-        <div class="group-hover:animate-bounce">
+        class="fixed bottom-8 right-2 sm:right-8 transition-all duration-300 transform translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-pink-600 hover:ring-4 sm:hover:ring-8 ring-pink-800 w-12 h-12 z-20 group">
+        <div class="text-white opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
