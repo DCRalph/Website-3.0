@@ -116,7 +116,7 @@ const socials = {
 
 const socialsMap = {
     0: Object.values(socials),
-    1: [socials.instagram, socials.snapchat, socials.website, socials.contact],
+    1: [socials.instagram, socials.snapchat, socials.website],
 }
 
 
@@ -174,7 +174,7 @@ app.get('/', function (req, res) {
 
     var data = { about, projects }
 
-    res.render('index', data);
+    return res.render('index', data);
 });
 
 
@@ -196,7 +196,7 @@ app.get("/files/:file(*)", (req, res) => {
     if (fs.existsSync(path)) {
         return res.status(200).sendFile(path);
     }
-    return res.status(404).json({ err: '404 File Not Found' })
+    return res.status(404).json({ err: '404 File Not Found', file: req.params.file })
 })
 
 
@@ -206,6 +206,8 @@ app.get("/social:x(*)", (req, res) => {
     if (socialsMap[socialsNum]) {
         // return res.status(200).json(socialsMap[socialsNum]);
         return res.render('social', { socials: socialsMap[socialsNum] });
+    } else {
+        return res.render('social', { socials: socialsMap[0] });
     }
     return res.status(404).json({ msg: '404 File Not Found', socialsNum })
 })
