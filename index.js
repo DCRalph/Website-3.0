@@ -34,14 +34,92 @@ const conv = new showdown.Converter({
 
 // conv.setFlavor('github');
 
+const socials = {
+    instagram: {
+        name: 'Instagram',
+        url: 'https://www.instagram.com/williamgiles05/',
+        urlShow: 'instagram.com/williamgiles05',
+        icon: '/files/ig.png',
+        color: 'instagram text-white'
+    },
+    website: {
+        name: 'Website',
+        url: 'https://williamgiles.co.nz',
+        urlShow: 'williamgiles.co.nz',
+        icon: '/files/logo.png',
+        color: 'bg-[#000] text-white'
+    },
+    twitter: {
+        name: 'Twitter',
+        url: 'https://twitter.com/dcralph_',
+        urlShow: 'twitter.com/dcralph_',
+        icon: '/files/twitter.svg',
+        color: 'bg-[#1da1f2] text-white'
+    },
+    email: {
+        name: 'Email',
+        url: 'mailto:william@williamgiles.co.nz',
+        urlShow: 'william@williamgiles.co.nz',
+        icon: '/files/mail.png',
+        color: 'bg-blue-600 text-white'
+    },
+    youtube: {
+        name: 'YouTube',
+        url: 'https://www.youtube.com/channel/UCJ2jGzghu5ChWSXkwn63FEQ',
+        urlShow: 'youtube.com',
+        icon: '/files/yt.png',
+        color: 'bg-[#ff0000] text-white'
+    },
+    facebook: {
+        name: 'Facebook',
+        url: 'https://www.facebook.com/william.giles.948/',
+        urlShow: 'fb.com/william.giles.948',
+        icon: '/files/facebook.svg',
+        color: 'bg-[#1877f2] text-white'
+    },
+    snapchat: {
+        name: 'Snapchat',
+        url: 'https://www.snapchat.com/add/williamgiles05',
+        urlShow: 'snapchat.com/add/williamgiles05',
+        icon: '/files/snapchat.png',
+        color: 'bg-[#fffc00] text-black'
+    },
+    github: {
+        name: 'GitHub',
+        url: 'https://github.com/dcralph',
+        urlShow: 'https://github.com/dcralph',
+        icon: '/files/github dark.png',
+        color: 'bg-[#000] text-white'
+    },
+    // contact: {
+    //     name: 'Contact',
+    //     url: '/files/contact.vcf',
+    //     urlShow: 'contact.vcf',
+    //     icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Contacts_%28iOS%29.png',
+    //     color: 'bg-[#a8a8a8]'
+    // },
+    discord: {
+        name: 'Discord',
+        url: 'https://discord.com/invite/5Kz7DsERx4',
+        urlShow: 'discord.com/invite/5Kz7DsERx4',
+        icon: '/files/discord.png',
+        color: 'bg-[#5865f2] text-white'
+    },
+    twitch: {
+        name: 'Twitch',
+        url: 'https://www.twitch.tv/dcralph0',
+        urlShow: 'twitch.tv/dcralph0',
+        icon: '/files/twitch.png',
+        color: 'bg-[#9146ff] text-white'
+    }
+}
 
-// fs.readdir('./posts/about', (err, files) => {
-//     files.forEach(file => {
-//         const post = fs.readFileSync(`./posts/about/${file}`, 'utf-8');
-//         const html = conv.makeHtml(post);
-//         console.log(1);
-//     });
-// });
+const socialsMap = {
+    0: Object.values(socials),
+    1: [socials.instagram, socials.snapchat, socials.website, socials.contact],
+}
+
+
 
 fs.watch('./posts/about', (eventType, filename) => {
     about = getAbout();
@@ -99,20 +177,6 @@ app.get('/', function (req, res) {
     res.render('index', data);
 });
 
-// app.get('/reload', function (req, res) {
-
-//     if (req.cookies['key'] == config.key || req.query.key == config.key) {
-//         abouts = getAbout();
-//         projects = getProjects();
-
-//         console.log('reloaded');
-
-//         res.cookie('key', config.key);
-//         return res.status(200).json('reloaded');
-//     }
-//     return res.status(401).json('nope lol');
-
-// });
 
 app.get("/icon.png", (req, res) => {
     return res.status(200).sendFile(__dirname + '/files/logo.png');
@@ -123,16 +187,32 @@ app.get("/favicon.ico", (req, res) => {
 })
 
 app.get("/files/:file(*)", (req, res) => {
+    if (req.params.file.split('')[0] == '_') {
+        return res.status(404).json({ err: '404 File Not Found' })
+    }
+
     let path = __dirname + '/files/' + req.params.file
 
     if (fs.existsSync(path)) {
         return res.status(200).sendFile(path);
     }
-    return res.status(404).json('404 File Not Found')
+    return res.status(404).json({ err: '404 File Not Found' })
+})
+
+
+app.get("/social:x(*)", (req, res) => {
+    let socialsNum = req.params.x
+
+    if (socialsMap[socialsNum]) {
+        // return res.status(200).json(socialsMap[socialsNum]);
+        return res.render('social', { socials: socialsMap[socialsNum] });
+    }
+    return res.status(404).json({ msg: '404 File Not Found', socialsNum })
 })
 
 app.get("/*", (req, res) => {
-    return res.status(404).json('404 Not Found')
+    return res.status(404).redirect('/');
+    // return res.status(404).json('404 Not Found')
 })
 
 var server = app.listen(config.port, () => {

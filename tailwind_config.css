@@ -4,9 +4,17 @@
 
 .hover_thing {
 	@apply bg-clip-text text-transparent bg-white bg-gradient-to-br hover:from-primary hover:to-secondary;
-	/* @apply transition-all duration-300 transform hover:-translate-y-2; */
+	/* @apply transition-all duration-300; */
 }
 
 .hover_trans {
 	@apply transition-all duration-300 transform hover:-translate-y-2;
+}
+
+.bg-dark {
+	@apply bg-gray-900;
+}
+
+.bg-section {
+	@apply bg-gray-800;
 }

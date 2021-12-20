@@ -26,29 +26,19 @@
         body {
             height: 100%;
             margin: 0;
-            font-family: 'Gobold';
+            font-family: ui-sans-serif;
             scroll-behavior: smooth;
         }
 
-        .bg-dark {
+        /* .bg-dark {
             --tw-bg-opacity: 1;
             background-color: rgba(22, 36, 47, var(--tw-bg-opacity))
-        }
-
-        .bg-lighter {
-            --tw-bg-opacity: 1;
-            background-color: rgba(41, 63, 81, var(--tw-bg-opacity))
         }
 
         .bg-section {
             --tw-bg-opacity: 1;
             background-color: rgba(21, 33, 44, var(--tw-bg-opacity))
-        }
-
-        .bg-highlight {
-            --tw-bg-opacity: 1;
-            background-color: rgba(232, 145, 218, var(--tw-bg-opacity))
-        }
+        } */
 
         .container {
             width: 100%;
@@ -72,9 +62,8 @@
             animation-play-state: running !important;
         }
 
-        .nice-font {
-            /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; */
-            font-family: ui-sans-serif;
+        .gobold {
+            font-family: 'Gobold';
         }
 
         @keyframes animateDisplay {
@@ -101,7 +90,7 @@
     <meta name="theme-color" content="#da22ff">
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <meta property="og:image" content="https://www.williamgiles.co.nz/icon.png" />
+    <meta property="og:image" content="https://www.williamgiles.co.nz/files/logo.png" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Dcralph_" />
@@ -110,7 +99,7 @@
     <title>William Giles</title>
 </head>
 
-<body class="bg-gray-800 antialiased dark">
+<body class="bg-gray-800 antialiased">
 
 
     <nav
@@ -127,7 +116,8 @@
                                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
                     </div>
-                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary">Home</div>
+                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
+                        Home</div>
                 </a>
             </div>
             <div class="flex items-center flex-col text-2xl text-white group hover_trans">
@@ -140,7 +130,8 @@
                                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary">About
+                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
+                        About
                     </div>
                 </a>
             </div>
@@ -154,7 +145,8 @@
                                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                         </svg>
                     </div>
-                    <div class=" text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary">Projects
+                    <div class=" text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
+                        Projects
                     </div>
                 </a>
             </div>
@@ -168,7 +160,8 @@
                                 d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                         </svg>
                     </div>
-                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary">Socials
+                    <div class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
+                        Socials
                     </div>
                 </a>
             </div>
@@ -178,7 +171,7 @@
     </nav>
 
     <a href="#home" id="toTop"
-        class="fixed bottom-8 right-2 sm:right-8 transition-all duration-300 transform translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-pink-600 hover:ring-4 sm:hover:ring-8 ring-pink-800 w-12 h-12 z-20 group">
+        class="fixed bottom-8 right-2 sm:right-8 transition-all duration-300 transform translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 md:hover:ring-4 md:active:ring-8  ring-blue-800 w-12 h-12 z-20 group">
         <div class="text-white opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -191,36 +184,28 @@
         <a class="flex items-center h-full transition-all duration-300 transform hover:-translate-y-2" href="/">
             <div class="w-16 h-16 rounded bg-contain" style="background-image:url(/files/logo.png)">
             </div>
-            <p class="text-white font-bold font-heading text-lg pl-4">William Giles</p>
+            <p class="text-white font-bold font-heading text-lg pl-4 gobold">William Giles</p>
         </a>
         <div class="flex items-center">
 
-            <a href="#home" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Home</a>
-            <a href="#about" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">About</a>
-            <a href="#projects" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Projects</a>
-            <a href="#socials" class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer hover_thing">Socials</a>
-            <!-- <div
-                class="text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
-                <a href="#about">About</a>
-            </div>
-            <div
-                class=" text-white font-bold text-lg px-6 py-4 transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
-                <a href="#projects">Projects</a>
-            </div>
-            <div
-                class=" text-white font-bold text-lg px-6 py- transition-all duration-150 hover:bg-lighter rounded-lg cursor-pointer transition-all duration-300 transform hover:-translate-y-2">
-                <a href="#socials">Socials</a>
-            </div> -->
+            <a href="#home"
+                class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer transition-all duration-300 text-white hover:text-primary gobold">Home</a>
+            <a href="#about"
+                class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer transition-all duration-300 text-white hover:text-primary gobold">About</a>
+            <a href="#projects"
+                class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer transition-all duration-300 text-white hover:text-primary gobold">Projects</a>
+            <a href="#socials"
+                class="font-bold text-lg px-6 py-4 rounded-lg cursor-pointer transition-all duration-300 text-white hover:text-primary gobold">Socials</a>
         </div>
     </nav>
 
 
     <div class="bg-dark bg-cover bg-center" id="home" style="background-image:url(/files/hero.svg)">
         <div class="container py-20 sm:py-40">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center gobold">
                 William Giles
             </h1>
-            <h2 class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4">
+            <h2 class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4 gobold">
                 Web Develoment • Home Automation • Iot
             </h2>
         </div>
@@ -231,14 +216,14 @@
         <div class="container animatable">
             <div class="flex flex-col items-center m-auto">
 
-                <h2 class="text-white mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">
+                <h2 class="text-white mb-4 font-bold text-3xl md:text-4xl lg:text-5xl gobold">
                     About
                 </h2>
 
                 <div class="flex flex-wrap justify-center gap-x-12 mt-8">
 
                     <% about.forEach(function(post){ %>
-                        <div class="mt-2 mb-8 prose prose-sm md:prose lg:prose-lg dark:prose-dark nice-font">
+                        <div class="mt-2 mb-8 prose prose-invert prose-sm md:prose-base lg:prose-lg">
                             <%- post.content %>
                         </div>
                         <% }); %>
@@ -252,7 +237,7 @@
         <div class="container animatable">
             <div class="flex flex-col items-center m-auto">
 
-                <h2 class="text-white mb-4 font-bold text-3xl md:text-4xl lg:text-5xl">
+                <h2 class="text-white mb-4 font-bold text-3xl md:text-4xl lg:text-5xl gobold">
                     Projects
                 </h2>
 
@@ -260,7 +245,7 @@
 
 
                     <% projects.forEach(function(post){ %>
-                        <div class="mt-2 mb-8 prose prose-sm md:prose lg:prose-lg dark:prose-dark nice-font">
+                        <div class="mt-2 mb-8 prose prose-invert prose-sm md:prose-base lg:prose-lg">
                             <%- post.content %>
                         </div>
                         <% }); %>
@@ -274,17 +259,17 @@
         <div class="container animatable">
             <div class="flex flex-col items-center w-full max-w-7xl m-auto">
 
-                <h2 class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <h2 class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl gobold">
                     Let's connect
                 </h2>
 
                 <div
-                    class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 bg-gray-800 rounded-3xl relative items-center mt-8">
+                    class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 bg-gray-900 rounded-3xl relative items-center mt-8">
                     <div class="w-72 h-full bg-center bg-no-repeat bg-contain absolute left-12 top-0 z-0 hidden sm:block"
                         style="background-image:url(/files/hand.png)">
                     </div>
 
-                    <div class="w-full h-full bg-gray-900 rounded-2xl p-8 z-10 relative">
+                    <div class="w-full h-full bg-gray-800 rounded-2xl p-8 z-10 relative">
                         <p class="text-white text-lg text-center sm:text-left">
                             I'm active on multiple Social Media platforms.
                         </p>
@@ -333,63 +318,38 @@
         </div>
     </section>
 
-    <footer class="bg-gray-800">
-        <div class="container pb-24 sm:pb-0">
-            <div class="flex flex-col sm:flex-row">
-                <div class="flex w-full py-8 justify-evenly justify-center">
-                    <div class="flex items-center space-x-4">
-                        <img src="/files/logo.png" alt="" class="w-16 h-16 bg-contain rounded">
-                        <div class="text-gray-100 font-body text-xl">William Giles</div>
-                    </div>
-                    <!-- <div class="flex items-center">
-                        <div class="text-gray-100 font-body text-xl">Contact:</div>
-                        <div class="text-gray-100 font-body">William@williamgiles.co.nz</div>
-                    </div> -->
-                </div>
-            </div>
-            <div class="flex h-16 items-center justify-center border-gray-600 border-t">
-                <div class="text-gray-400 text-center font-body">
-                    © Copyright <span id="year">2021</span> William Giles.
-                    • All rights reserved.
-                    • V10
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%- include('footer', {bg: 'bg-gray-900' }); %>
 
+        <script>
 
-    <script>
-
-        document.getElementById("year").innerHTML = new Date().getFullYear();
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('play');
-                    }, 200);
-                }
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('play');
+                        }, 200);
+                    }
+                });
             });
-        });
 
-        document.querySelectorAll('.animatable').forEach(element => {
-            observer.observe(element);
-        });
+            document.querySelectorAll('.animatable').forEach(element => {
+                observer.observe(element);
+            });
 
-        var toTop = document.getElementById("toTop");
+            var toTop = document.getElementById("toTop");
 
-        document.onscroll = () => {
-            // console.log(window.pageYOffset);
-            if (window.pageYOffset >= 200) {
-                toTop.classList.remove('translate-y-20');
-                toTop.classList.add('translate-y-0');
-            } else {
-                toTop.classList.add('translate-y-20');
-                toTop.classList.remove('translate-y-0');
+            document.onscroll = () => {
+                // console.log(window.pageYOffset);
+                if (window.pageYOffset >= 200) {
+                    toTop.classList.remove('translate-y-20');
+                    toTop.classList.add('translate-y-0');
+                } else {
+                    toTop.classList.add('translate-y-20');
+                    toTop.classList.remove('translate-y-0');
+                }
             }
-        }
 
-    </script>
+        </script>
 
 </body>
 

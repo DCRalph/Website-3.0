@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Giles</title>
+
+    <link rel="stylesheet" href="/files/tailwind.css">
+    <style>
+        @font-face {
+            font-family: 'Gobold';
+            src: url('/files/font/Gobold.ttf.woff') format('woff'),
+                url('/files/font/Gobold.ttf.svg#Gobold') format('svg'),
+                url('/files/font/Gobold.ttf.eot'),
+                url('/files/font/Gobold.ttf.eot?#iefix') format('embedded-opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: "Open Sans", HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gobold {
+            font-family: 'Gobold';
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-100 dark:bg-zinc-900 antialiased flex flex-col">
+
+    <main class="flex flex-col items-center p-16">
+
+        <!-- <div class="text-6xl dark:text-white text-black font-extrabold">
+            William Giles
+        </div> -->
+
+        <div class="flex flex-col items-center space-y-4">
+            <img src="/files/logo.png" alt="" class="w-32 bg-contain rounded">
+            <div class="text-4xl md:text-7xl dark:text-white text-black font-extrabold">William Giles</div>
+        </div>
+
+        <div class="space-y-4 pt-16 select-none flex flex-col">
+
+            <% socials.forEach(function(item){ %>
+
+                <a class="h-20 w-auto flex space-x-4 transform transition md:hover:-translate-y-2 md:hover:-translate-x-2 gobold"
+                    href="<%= item.url %>" target="_blank">
+
+                    <div class="<%= item.color %> rounded-lg w-60 flex flex-col px-4 justify-center items-center">
+                        <p class="text-2xl">
+                            <%= item.name %>
+                        </p>
+                        <p class="text-sm">
+                            <%= item.urlShow %>
+                        </p>
+                    </div>
+
+                    <div class="aspect-square h-full rounded-lg bg-gray-500">
+                        <img class="h-full w-full object-contain p-2" src="<%= item.icon %>" alt="">
+                    </div>
+
+
+
+                    <!-- <img class="h-full p-2" src="<%= item.icon %>"> -->
+
+                </a>
+
+                <% }); %>
+
+                    <!-- <div class="h-16 w-auto flex space-x-4">
+
+                        <img class="h-full" src="/files/snapchat.png">
+
+
+                        <div class="bg-[#fffc00] rounded-lg w-full flex flex-col px-4 justify-center">
+                            <div class="text-gray-800 text-2xl font-semibold">
+                                Snapchat
+                            </div>
+                            <div class="text-gray-800 text-sm">
+                                Snapchat.com
+                            </div>
+                        </div>
+
+                    </div> -->
+        </div>
+
+    </main>
+
+    <%- include('footer', {bg: 'bg-zinc-800' }); %>
+
+</body>
+
+</html>

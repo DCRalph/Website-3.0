@@ -1,0 +1,16 @@
+<footer class="<%= bg %>  flex flex-col items-center gobold w-full mt-auto">
+    <div class="flex items-center justify-center space-x-4 p-8 w-full">
+        <img src="/files/logo.png" alt="" class="w-16 h-16 bg-contain rounded">
+        <div class="text-gray-400 font-semibold text-xl">William Giles</div>
+    </div>
+    <div class="flex h-16 items-center justify-center w-full border-gray-600 border-t">
+        <p class="text-gray-400 text-lg text-center">
+            &copy; Copyright <span id="year">----</span> William Giles.
+            • All rights reserved.
+            • V11
+        </p>
+    </div>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+</footer>
