@@ -253,7 +253,7 @@ app.get("/s:x(*)", (req, res) => {
         return res.render('social', { info: social[socialId].info, socials: Object.values(social[socialId].items) });
     }
 
-    return res.status(404).json({ msg: '404 File Not Found', socialsNum })
+    return res.status(404).json({ msg: '404 File Not Found', socialsId })
 })
 
 app.get("/*", (req, res) => {
