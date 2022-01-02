@@ -87,7 +87,7 @@ const socials = {
     github: {
         name: 'GitHub',
         url: 'https://github.com/dcralph',
-        urlShow: 'https://github.com/dcralph',
+        urlShow: 'github.com/dcralph',
         icon: '/files/github dark.png',
         color: 'bg-[#000] text-white'
     },
