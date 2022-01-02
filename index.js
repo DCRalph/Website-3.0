@@ -250,7 +250,7 @@ app.get("/social:x(*)", (req, res) => {
 
     if (social[socialId]) {
         // return res.status(200).json(socialsMap[socialsNum]);
-        return res.render('social', { socials: social[socialId] });
+        return res.render('social', { socials: Object.values(social[socialId]) });
     }
 
     return res.status(404).json({ msg: '404 File Not Found', socialsNum })
