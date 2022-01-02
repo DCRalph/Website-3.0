@@ -120,18 +120,18 @@ const conv = new showdown.Converter({
 // }
 
 
-const socialFile = './social.json'
+const linkFile = './social.json'
 const aboutFile = './posts/about'
 const projectsFile = './posts/projects'
 
-fs.watch(socialFile, (eventType, filename) => {
-    social = getSocial();
+fs.watch(linkFile, (eventType, filename) => {
+    links = getLinks();
 });
 
-var social = getSocial();
+var links = getLinks();
 
-function getSocial() {
-    let data = JSON.parse(fs.readFileSync(socialFile, 'utf-8'));
+function getLinks() {
+    let data = JSON.parse(fs.readFileSync(linkFile, 'utf-8'));
     return data
 }
 
@@ -238,8 +238,8 @@ app.get("/files/:file(*)", (req, res) => {
 })
 
 
-app.get("/s:x(*)", (req, res) => {
-    let socialId = req.params.x
+app.get("/link:x(*)", (req, res) => {
+    let linkID = req.params.x
 
     // if (socialsMap[socialsNum]) {
     //     // return res.status(200).json(socialsMap[socialsNum]);
@@ -248,12 +248,11 @@ app.get("/s:x(*)", (req, res) => {
     //     return res.render('social', { socials: socialsMap[0] });
     // }
 
-    if (socialId.length > 0 && social[socialId]) {
-        // return res.status(200).json(socialsMap[socialsNum]);fr
-        return res.render('social', { info: social[socialId].info, socials: Object.values(social[socialId].items) });
+    if (linkID.length > 0 && linkd[linkID]) {
+        return res.render('social', { info: links[linkID].info, socials: Object.values(links[linkID].items) });
     }
 
-    return res.status(404).json({ msg: '404 File Not Found', socialId })
+    return res.status(404).json({ msg: '404 File Not Found', linkID })
 })
 
 app.get("/*", (req, res) => {
