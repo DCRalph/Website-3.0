@@ -12,6 +12,13 @@
                 "icon": "/files/ig.png",
                 "color": "instagram text-white"
             },
+            "snapchat": {
+                "name": "Snapchat",
+                "url": "https://www.snapchat.com/add/williamgiles05",
+                "urlShow": "snapchat.com/add/williamgiles05",
+                "icon": "/files/snapchat.png",
+                "color": "bg-[#fffc00] text-black"
+            },
             "website": {
                 "name": "Website",
                 "url": "https://williamgiles.co.nz",
@@ -46,13 +53,6 @@
                 "urlShow": "fb.com/william.giles.948",
                 "icon": "/files/facebook.svg",
                 "color": "bg-[#1877f2] text-white"
-            },
-            "snapchat": {
-                "name": "Snapchat",
-                "url": "https://www.snapchat.com/add/williamgiles05",
-                "urlShow": "snapchat.com/add/williamgiles05",
-                "icon": "/files/snapchat.png",
-                "color": "bg-[#fffc00] text-black"
             },
             "github": {
                 "name": "GitHub",
