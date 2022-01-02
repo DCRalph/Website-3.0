@@ -248,7 +248,7 @@ app.get("/link:x(*)", (req, res) => {
     //     return res.render('social', { socials: socialsMap[0] });
     // }
 
-    if (linkID.length > 0 && linkd[linkID]) {
+    if (linkID.length > 0 && links[linkID]) {
         return res.render('social', { info: links[linkID].info, socials: Object.values(links[linkID].items) });
     }
 
