@@ -238,7 +238,7 @@ app.get("/files/:file(*)", (req, res) => {
 })
 
 
-app.get("/social:x(*)", (req, res) => {
+app.get("/s:x(*)", (req, res) => {
     let socialId = req.params.x
 
     // if (socialsMap[socialsNum]) {
@@ -248,8 +248,8 @@ app.get("/social:x(*)", (req, res) => {
     //     return res.render('social', { socials: socialsMap[0] });
     // }
 
-    if (socialId && social[socialId]) {
-        // return res.status(200).json(socialsMap[socialsNum]);
+    if (socialId.length > 0 && social[socialId]) {
+        // return res.status(200).json(socialsMap[socialsNum]);fr
         return res.render('social', { info: social[socialId].info, socials: Object.values(social[socialId].items) });
     }
 
