@@ -248,9 +248,9 @@ app.get("/social:x(*)", (req, res) => {
     //     return res.render('social', { socials: socialsMap[0] });
     // }
 
-    if (social[socialId]) {
+    if (socialId && social[socialId]) {
         // return res.status(200).json(socialsMap[socialsNum]);
-        return res.render('social', { socials: Object.values(social[socialId]) });
+        return res.render('social', { info: social[socialId].info, socials: Object.values(social[socialId].items) });
     }
 
     return res.status(404).json({ msg: '404 File Not Found', socialsNum })
