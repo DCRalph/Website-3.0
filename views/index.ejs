@@ -10,7 +10,6 @@
     <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
     <link href="/files/tailwind.css" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
 
     <style>
         @font-face {
@@ -29,6 +28,14 @@
             margin: 0;
             font-family: ui-sans-serif;
             scroll-behavior: smooth;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
         }
 
         /* .bg-dark {
@@ -104,8 +111,8 @@
 
 
     <nav
-        class="flex fixed justify-evenly items-center w-full h-28 px-16 bottom-0 z-10 transition-all duration-300 transform translate-y-0 sm:translate-y-28 ">
-        <div class="flex justify-evenly items-center w-full h-full bg-gray-700 rounded-2xl px-4 shadow-lg">
+        class="flex fixed justify-evenly items-center w-full mb-8 px-16 bottom-0 z-10 transition-all duration-300 transform translate-y-0 sm:translate-y-28 ">
+        <div class="flex justify-evenly items-center w-full h-20 bg-gray-700 rounded-2xl px-4 shadow-lg">
 
             <div class="flex items-center flex-col text-2xl text-white group hover_trans">
                 <a href="#home">
@@ -172,7 +179,7 @@
     </nav>
 
     <a href="#home" id="toTop"
-        class="fixed bottom-8 right-2 sm:right-8 transition-all duration-300 transform translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 md:hover:ring-4 md:active:ring-8  ring-blue-800 w-12 h-12 z-20 group">
+        class="fixed bottom-12 right-2 sm:bottom-8 sm:right-8 transition-all duration-300 transform translate-y-24 sm:translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 sm:hover:ring-4 sm:active:ring-8 ring-blue-800 w-12 h-12 z-20 group">
         <div class="text-white opacity-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -181,7 +188,8 @@
         </div>
     </a>
 
-    <nav class="hidden sm:flex container h-20 justify-between absolute top-0 left-1/2 transform -translate-x-1/2 ">
+    <nav class="hidden sm:flex h-20 w-full px-12 justify-between fixed z-30 top-0 transition-all duration-300"
+        id="nav1">
         <a class="flex items-center h-full transition-all duration-300 transform hover:-translate-y-2" href="/">
             <div class="w-16 h-16 rounded bg-contain" style="background-image:url(/files/logo.png)">
             </div>
@@ -221,10 +229,11 @@
                     About
                 </h2>
 
-                <div class="flex flex-wrap justify-center gap-x-12 mt-8">
+                <div class="flex flex-wrap justify-center mt-8">
 
                     <% about.forEach(function(post){ %>
-                        <div class="mt-2 mb-8 prose prose-invert prose-sm md:prose-base lg:prose-lg">
+                        <div
+                            class="mt-2 mb-8 px-0 md:px-6 w-full md:w-1/2 prose prose-invert prose-sm md:prose-base lg:prose-lg">
                             <%- post.content %>
                         </div>
                         <% }); %>
@@ -242,11 +251,11 @@
                     Projects
                 </h2>
 
-                <div class="flex flex-wrap justify-center gap-x-12 mt-8">
-
+                <div class="flex flex-wrap justify-center mt-8">
 
                     <% projects.forEach(function(post){ %>
-                        <div class="mt-2 mb-8 prose prose-invert prose-sm md:prose-base lg:prose-lg">
+                        <div
+                            class="mt-2 mb-8 px-0 md:px-6 w-full md:w-1/2 prose prose-invert prose-sm md:prose-base lg:prose-lg">
                             <%- post.content %>
                         </div>
                         <% }); %>
@@ -321,6 +330,9 @@
 
     <%- include('footer', {bg: 'bg-gray-900' }); %>
 
+
+        <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> -->
+
         <script>
 
             const observer = new IntersectionObserver(entries => {
@@ -337,21 +349,33 @@
                 observer.observe(element);
             });
 
-            var scroll = new SmoothScroll('a[href*="#"]', {
-	            speed: 300,
-                easing: 'easeInOutCubic'
-            });
+            // var scroll = new SmoothScroll('a[href*="#"]', {
+            //     speed: 300,
+            //     // speedAsDuration: true,
+            //     easing: 'easeInOutQuad'
+            // });
 
-            var toTop = document.getElementById("toTop");
+            const toTop = document.getElementById("toTop");
+            const nav1 = document.getElementById('nav1');
 
             document.onscroll = () => {
-                // console.log(window.pageYOffset);
+                console.log(window.pageYOffset)
                 if (window.pageYOffset >= 200) {
-                    toTop.classList.remove('translate-y-20');
+                    toTop.classList.remove('sm:translate-y-20');
+                    toTop.classList.remove('translate-y-24');
                     toTop.classList.add('translate-y-0');
                 } else {
-                    toTop.classList.add('translate-y-20');
+                    toTop.classList.add('sm:translate-y-20');
+                    toTop.classList.add('translate-y-24');
                     toTop.classList.remove('translate-y-0');
+                }
+
+                if (window.pageYOffset >= 1) {
+                    nav1.classList.add('shadow-2xl');
+                    nav1.classList.add('backdrop-blur');
+                } else {
+                    nav1.classList.remove('shadow-2xl');
+                    nav1.classList.remove('backdrop-blur');
                 }
             }
 
