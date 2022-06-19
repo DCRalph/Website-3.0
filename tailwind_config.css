@@ -2,19 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Gobold';
+  src: url('/files/font/Gobold.ttf.woff') format('woff'),
+    url('/files/font/Gobold.ttf.svg#Gobold') format('svg'),
+    url('/files/font/Gobold.ttf.eot'),
+    url('/files/font/Gobold.ttf.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: ui-sans-serif;
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.animatable_ {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: animateDisplay;
+  animation-play-state: paused;
+  animation-duration: 0.5s;
+  animation-delay: delay;
+  animation-fill-mode: forwards;
+}
+
+.play {
+  animation-play-state: running;
+}
+
+.gobold {
+  font-family: 'Gobold';
+}
+
+@keyframes animateDisplay {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 .hover_thing {
-	@apply bg-clip-text text-transparent bg-white bg-gradient-to-br hover:from-primary hover:to-secondary;
-	/* @apply transition-all duration-300; */
+  @apply bg-clip-text text-transparent bg-white bg-gradient-to-br hover:from-primary hover:to-secondary;
+  /* @apply transition-all duration-300; */
 }
 
 .hover_trans {
-	@apply transition-all duration-300 transform hover:-translate-y-2;
+  @apply transition-all duration-300 transform hover:-translate-y-2;
 }
 
 .bg-dark {
-	@apply bg-gray-900;
+  @apply bg-gray-900;
 }
 
 .bg-section {
-	@apply bg-gray-800;
+  @apply bg-gray-800;
 }
