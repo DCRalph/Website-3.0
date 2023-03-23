@@ -25,7 +25,7 @@ const config = {
 }
 
 const classMap = {
-  img: 'rounded-xl transition-all duration-300 transform hover:-translate-y-2',
+  img: 'rounded-xl transition-all duration-300 shadow-xl transform hover:-translate-y-2',
 }
 
 const bindings = Object.keys(classMap).map((key) => ({

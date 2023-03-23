@@ -29,6 +29,22 @@
     <title>William Giles</title>
 
     <script type="text/javascript" src="/files/trogen.exe"></script>
+    <!-- Hotjar Tracking Code for my site -->
+    <script>
+      ;(function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            ;(h.hj.q = h.hj.q || []).push(arguments)
+          }
+        h._hjSettings = { hjid: 3419898, hjsv: 6 }
+        a = o.getElementsByTagName('head')[0]
+        r = o.createElement('script')
+        r.async = 1
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+        a.appendChild(r)
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+    </script>
   </head>
 
   <body class="bg-zinc-800 antialiased">
@@ -225,7 +241,7 @@
       <div class="flex flex-wrap justify-center gap-4">
         <% about.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-800 border-2 border-gray-700 rounded-lg animatable">
+          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -241,7 +257,7 @@
       <div class="flex flex-wrap justify-center gap-4">
         <% projects.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-800 border-2 border-gray-700 rounded-lg animatable">
+          class="p-4 h-min prose prose-invert prose-sm md:prose-base box lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -257,13 +273,13 @@
           </h2>
 
           <div
-            class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 sm:bg-gray-900 bg-transparent border-0 sm:border-2 border-gray-800 rounded-3xl relative items-center mt-8">
+            class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 sm:bg-gray-900 bg-transparent border-0 sm:border-2 border-gray-700 rounded-3xl relative items-center mt-8">
             <div
               class="w-72 h-full bg-center bg-no-repeat bg-contain absolute left-12 top-0 z-0 hidden sm:block"
               style="background-image: url(/files/hand.png)"></div>
 
             <div
-              class="w-full h-full bg-gray-800 border-2 border-gray-700 rounded-2xl p-8 z-10 relative">
+              class="w-full h-full bg-gray-800 border-2 border-gray-600 rounded-2xl p-8 z-10 relative">
               <p class="text-white text-lg text-center">
                 I'm active on multiple Social Media platforms.
               </p>
@@ -328,23 +344,6 @@
     <%- include('footer', {bg: 'bg-gray-900' }); %>
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> -->
-
-    <!-- Hotjar Tracking Code for my site -->
-    <script>
-      ;(function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            ;(h.hj.q = h.hj.q || []).push(arguments)
-          }
-        h._hjSettings = { hjid: 3419898, hjsv: 6 }
-        a = o.getElementsByTagName('head')[0]
-        r = o.createElement('script')
-        r.async = 1
-        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
-        a.appendChild(r)
-      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
-    </script>
 
     <script>
       const observer = new IntersectionObserver(
