@@ -39,7 +39,7 @@ html {
   padding-left: 1rem;
 }
 
-.animatable_ {
+.animatable {
   opacity: 0;
   transform: translateY(25px);
   animation: animateDisplay;

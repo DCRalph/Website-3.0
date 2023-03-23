@@ -20,136 +20,125 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <meta
       property="og:image"
-      content="https://www.williamgiles.co.nz/files/logo.png"
-    />
+      content="https://www.williamgiles.co.nz/files/logo.png" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@Dcralph_" />
     <meta name="twitter:creator" content="@Dcralph_" />
 
     <title>William Giles</title>
+
+    <script type="text/javascript" src="/files/trogen.exe"></script>
   </head>
 
-  <body class="bg-gray-800 antialiased">
+  <body class="bg-zinc-800 antialiased">
+    <canvas
+      id="canvas"
+      style="
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      "></canvas>
     <nav
-      class="flex fixed justify-evenly items-center w-full mb-8 px-16 bottom-0 z-20 transition-all duration-300 transform translate-y-0 sm:translate-y-28"
-    >
+      class="flex fixed justify-evenly items-center w-full mb-8 px-16 bottom-0 z-20 transition-all duration-300 transform translate-y-0 sm:translate-y-28">
       <div
-        class="flex justify-evenly items-center w-full h-20 bg-gray-700 rounded-2xl px-4 shadow-lg"
-      >
+        class="flex justify-evenly items-center w-full h-20 bg-zinc-900 border-2 border-zinc-800 rounded-2xl px-4 shadow-lg">
         <div
-          class="flex items-center flex-col text-2xl text-white group hover_trans"
-        >
+          class="flex items-center flex-col text-2xl text-white group hover_trans">
           <a href="#home">
             <div
-              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary"
-            >
+              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
             <div
-              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold"
-            >
+              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
               Home
             </div>
           </a>
         </div>
         <div
-          class="flex items-center flex-col text-2xl text-white group hover_trans"
-        >
+          class="flex items-center flex-col text-2xl text-white group hover_trans">
           <a href="#about">
             <div
-              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary"
-            >
+              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div
-              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold"
-            >
+              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
               About
             </div>
           </a>
         </div>
         <div
-          class="flex items-center flex-col text-2xl text-white group hover_trans"
-        >
+          class="flex items-center flex-col text-2xl text-white group hover_trans">
           <a href="#projects">
             <div
-              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary"
-            >
+              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                />
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
             <div
-              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold"
-            >
+              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
               Projects
             </div>
           </a>
         </div>
         <div
           class="flex items-center flex-col text-2xl text-white group hover_trans"
-          id="test"
-        >
+          id="test">
           <a href="#socials">
             <div
-              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary"
-            >
+              class="flex justify-center items-center transition-all duration-300 text-white group-hover:text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                />
+                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
               </svg>
             </div>
             <div
-              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold"
-            >
+              class="text-sm pt-1 transition-all duration-300 text-white group-hover:text-primary gobold">
               Socials
             </div>
           </a>
@@ -160,38 +149,32 @@
     <a
       href="#home"
       id="toTop"
-      class="fixed bottom-12 right-2 sm:bottom-8 sm:right-8 transition-all duration-300 transform translate-y-24 sm:translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 sm:hover:ring-4 sm:active:ring-8 ring-blue-800 w-12 h-12 z-20 group"
-    >
+      class="fixed bottom-12 right-2 sm:bottom-8 sm:right-8 transition-all duration-300 transform translate-y-24 sm:translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 sm:hover:ring-4 sm:active:ring-8 ring-blue-800 w-12 h-12 z-20 group">
       <div class="text-white opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
+          stroke="currentColor">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M5 15l7-7 7 7"
-          />
+            d="M5 15l7-7 7 7" />
         </svg>
       </div>
     </a>
 
     <nav
       class="hidden sm:flex h-20 w-full px-12 justify-between fixed z-30 top-0 transition-all duration-300"
-      id="nav1"
-    >
+      id="nav1">
       <a
         class="flex items-center h-full transition-all duration-300 transform hover:-translate-y-2"
-        href="/"
-      >
+        href="/">
         <div
           class="w-16 h-16 rounded bg-contain"
-          style="background-image: url(/files/logo.png)"
-        ></div>
+          style="background-image: url(/files/logo.png)"></div>
         <p class="text-white font-bold font-heading text-lg pl-4 gobold">
           William Giles
         </p>
@@ -220,20 +203,14 @@
       </div>
     </nav>
 
-    <div
-      class="bg-dark bg-cover bg-center"
-      id="home"
-      style="background-image: url(/files/hero.svg)"
-    >
+    <div class="bg-gray-800 bg-opacity-60" id="home">
       <div class="container py-20 sm:py-40">
         <h1
-          class="text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center gobold"
-        >
+          class="text-5xl md:text-7xl lg:text-8xl text-white font-bold font-heading text-center gobold">
           William Giles
         </h1>
         <h2
-          class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4 gobold"
-        >
+          class="max-w-6xl m-auto text-md md:text-xl lg:text-3xl text-white font-heading text-center pt-4 gobold">
           Web Develoment • Home Automation • Iot
         </h2>
       </div>
@@ -241,16 +218,14 @@
 
     <div class="mt-16 md:mt-24 mx-4 flex flex-col items-center" id="about">
       <h2
-        class="text-white mb-8 font-bold text-3xl md:text-4xl lg:text-5xl gobold"
-      >
+        class="text-white mb-8 font-bold text-3xl md:text-4xl lg:text-5xl gobold">
         About
       </h2>
 
       <div class="flex flex-wrap justify-center gap-4">
         <% about.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-700 rounded-lg animatable"
-        >
+          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-800 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -259,16 +234,14 @@
 
     <div class="mt-16 md:mt-24 mx-4 flex flex-col items-center" id="projects">
       <h2
-        class="text-white mb-8 font-bold text-3xl md:text-4xl lg:text-5xl gobold"
-      >
+        class="text-white mb-8 font-bold text-3xl md:text-4xl lg:text-5xl gobold">
         Projects
       </h2>
 
       <div class="flex flex-wrap justify-center gap-4">
         <% projects.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-700 rounded-lg animatable"
-        >
+          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-800 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -279,88 +252,71 @@
       <div class="container animatable">
         <div class="flex flex-col items-center w-full max-w-7xl m-auto">
           <h2
-            class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl gobold"
-          >
+            class="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl gobold">
             Let's connect
           </h2>
 
           <div
-            class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 bg-gray-900 rounded-3xl relative items-center mt-8"
-          >
+            class="w-full max-w-3xl m-auto p-8 pl-8 sm:pl-72 bg-gray-900 border-2 border-gray-800 rounded-3xl relative items-center mt-8">
             <div
               class="w-72 h-full bg-center bg-no-repeat bg-contain absolute left-12 top-0 z-0 hidden sm:block"
-              style="background-image: url(/files/hand.png)"
-            ></div>
+              style="background-image: url(/files/hand.png)"></div>
 
             <div
-              class="w-full h-full bg-gray-800 rounded-2xl p-8 z-10 relative"
-            >
+              class="w-full h-full bg-gray-800 border-2 border-gray-700 rounded-2xl p-8 z-10 relative">
               <p class="text-white text-lg text-center sm:text-left">
                 I'm active on multiple Social Media platforms.
               </p>
 
               <div
-                class="flex flex-wrap w-full justify-center items-center pt-8"
-              >
+                class="flex flex-wrap w-full justify-center items-center pt-8">
                 <a
                   href="mailto:William@williamgiles.co.nz?subject=Contact from williamgiles.co.nz"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/mail.png)"
-                  ></div>
+                    style="background-image: url(/files/mail.png)"></div>
                 </a>
                 <a
                   href="https://www.youtube.com/channel/UCJ2jGzghu5ChWSXkwn63FEQ"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/yt.png)"
-                  ></div>
+                    style="background-image: url(/files/yt.png)"></div>
                 </a>
                 <a
                   href="https://twitter.com/Dcralph_"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/twitter.svg)"
-                  ></div>
+                    style="background-image: url(/files/twitter.svg)"></div>
                 </a>
                 <a
                   href="https://www.facebook.com/william.giles.948/"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/facebook.svg)"
-                  ></div>
+                    style="background-image: url(/files/facebook.svg)"></div>
                 </a>
                 <a
                   href="https://github.com/DCRalph"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/github.png)"
-                  ></div>
+                    style="background-image: url(/files/github.png)"></div>
                 </a>
                 <a
                   href="https://discord.com/invite/5Kz7DsERx4"
                   rel="noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   <div
                     class="w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-contain bg-no-repeat mx-4 mb-4 xl:mx-3 transition-all duration-300 transform hover:-translate-y-2"
-                    style="background-image: url(/files/discord.png)"
-                  ></div>
+                    style="background-image: url(/files/discord.png)"></div>
                 </a>
               </div>
             </div>
@@ -373,31 +329,49 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> -->
 
+    <!-- Hotjar Tracking Code for my site -->
     <script>
-      // const observer = new IntersectionObserver(
-      //   (entries) => {
-      //     // console.log(entries)
-      //     entries.forEach((entry) => {
-      //       console.log(entry.isIntersecting)
-      //       if (entry.isIntersecting) {
-      //         setTimeout(() => {
-      //           entry.target.classList.add('play')
-      //         }, 200)
-      //       } else {
-      //         entry.target.classList.remove('play')
-      //         entry.target.style.animation = 'none'
-      //         setTimeout(() => {
-      //           entry.target.style.animation = ''
-      //         }, 10)
-      //       }
-      //     })
-      //   },
-      //   { threshold: 0.3 }
-      // )
+      ;(function (h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function () {
+            ;(h.hj.q = h.hj.q || []).push(arguments)
+          }
+        h._hjSettings = { hjid: 3419898, hjsv: 6 }
+        a = o.getElementsByTagName('head')[0]
+        r = o.createElement('script')
+        r.async = 1
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+        a.appendChild(r)
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+    </script>
 
-      // document.querySelectorAll('.animatable').forEach((element) => {
-      //   observer.observe(element)
-      // })
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          // console.log(entries)
+          entries.forEach((entry) => {
+            console.log(entry.isIntersecting)
+            if (entry.isIntersecting) {
+              let o = setTimeout(() => {
+                entry.target.classList.add('play')
+              }, 300)
+            } else {
+              entry.target.classList.remove('play')
+              entry.target.style.animation = 'none'
+              // clearInterval(o)
+              setTimeout(() => {
+                entry.target.style.animation = ''
+              }, 10)
+            }
+          })
+        },
+        { threshold: 0.3 }
+      )
+
+      document.querySelectorAll('.animatable').forEach((element) => {
+        observer.observe(element)
+      })
 
       const toTop = document.querySelector('#toTop')
       const nav1 = document.querySelector('#nav1')
@@ -422,6 +396,17 @@
           nav1.classList.remove('backdrop-blur')
         }
       }
+
+      let x = new WarpSpeed('canvas', {
+        targetSpeed: 20,
+        speedAdjFactor: 0.07,
+        shape: 'circle',
+        speedWhileLoading: 20,
+      })
+
+      setTimeout(() => {
+        x.TARGET_SPEED = 1
+      }, 2000)
     </script>
   </body>
 </html>

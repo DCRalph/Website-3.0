@@ -1,5 +1,6 @@
 import express from 'express'
 const app = express()
+const appSocial = express()
 
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -12,6 +13,9 @@ import fs from 'fs'
 import ejs from 'ejs'
 app.set('view engine', 'ejs')
 app.set('views', './views')
+
+appSocial.set('view engine', 'ejs')
+appSocial.set('views', './views')
 
 import showdown from 'showdown'
 
@@ -97,7 +101,26 @@ app.get('/favicon.ico', (req, res) => {
 
 app.get('/files/:file(*)', (req, res) => {
   if (req.params.file.split('')[0] == '_') {
-    return res.status(404).json({ err: '404 File Not Found' })
+    return res
+      .status(404)
+      .json({ err: '404 File Not Found', file: req.params.file })
+  }
+
+  let path = __dirname + '/files/' + req.params.file
+
+  if (fs.existsSync(path)) {
+    return res.status(200).sendFile(path)
+  }
+  return res
+    .status(404)
+    .json({ err: '404 File Not Found', file: req.params.file })
+})
+
+appSocial.get('/files/:file(*)', (req, res) => {
+  if (req.params.file.split('')[0] == '_') {
+    return res
+      .status(404)
+      .json({ err: '404 File Not Found', file: req.params.file })
   }
 
   let path = __dirname + '/files/' + req.params.file
@@ -123,11 +146,33 @@ app.get('/link:x(*)', (req, res) => {
   return res.status(404).json({ msg: '404 File Not Found', linkID })
 })
 
+appSocial.get('/:x(*)', (req, res) => {
+  let linkID = req.params.x
+
+  if (linkID.length > 0 && links[linkID]) {
+    return res.render('social', {
+      info: links[linkID].info,
+      socials: Object.values(links[linkID].items),
+    })
+  }
+
+  return res.status(404).json({ msg: '404 File Not Found', linkID })
+})
+
 app.get('/*', (req, res) => {
+  return res.status(404).redirect('/')
+  // return res.status(404).json('404 Not Found')
+})
+
+appSocial.get('/*', (req, res) => {
   return res.status(404).redirect('/')
   // return res.status(404).json('404 Not Found')
 })
 
 var server = app.listen(config.port, () => {
   console.log(server.address())
+})
+
+var serverSocial = appSocial.listen(config.port_social, () => {
+  console.log(serverSocial.address())
 })
