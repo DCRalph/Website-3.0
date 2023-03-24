@@ -96,6 +96,14 @@ app.get('/', (req, res) => {
   return res.render('index', data)
 })
 
+app.post('/gitpull', async (req, res) => {
+  console.log(req)
+
+  if (req.query.password == config.key) {
+    res.status(200).json({ ok: true, message: 'git pull and restarting' })
+  }
+})
+
 app.get('/gitpull', async (req, res) => {
   if (req.query.password == config.key) {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
