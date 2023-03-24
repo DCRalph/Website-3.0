@@ -27,6 +27,7 @@ import showdown from 'showdown'
 import config from './config.js'
 
 import { exec, execSync } from 'child_process'
+import { exit } from 'process'
 
 const classMap = {
   img: 'rounded-xl transition-all duration-300 shadow-xl transform hover:-translate-y-2',
@@ -100,7 +101,7 @@ app.get('/gitpull', async (req, res) => {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
 
     const pull = execSync('ls')
-    const restart = exec('sudo systemctl restart website.service')
+    exit()
 
     return
   } else {
