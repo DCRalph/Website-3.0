@@ -99,7 +99,7 @@ app.get('/', (req, res) => {
 
 app.post('/gitpull', async (req, res) => {
   let sig =
-    'sha1=' + createHmac('sha1', config.key).update(req.rawBody).digest('hex')
+    'sha1=' + createHmac('sha1', config.key).update(req.body).digest('hex')
 
   if (req.headers['x-hub-signature'] == sig) {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
