@@ -380,13 +380,12 @@
         document.querySelectorAll('.animatable').forEach((element) => {
           observer.observe(element)
         })
-      }, 500)
+      }, 300)
 
       let warpSpeedObject = new WarpSpeed('canvas', {
         targetSpeed: 10,
         speedAdjFactor: 0.07,
         shape: 'circle',
-        speedWhileLoading: 10,
         backgroundColor: 'hsl(263, 100%, 7%)',
       })
 
