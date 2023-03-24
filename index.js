@@ -98,18 +98,12 @@ app.get('/', (req, res) => {
 })
 
 app.post('/gitpull', async (req, res) => {
-  let sig =
-    'sha256=' +
-    createHmac('sha256', config.key)
-      .update(Buffer.from(req.body, 'utf8'))
-      .digest('hex')
-
-  if (req.headers['x-hub-signature'] == sig) {
+  if (req.query.password == config.key) {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
 
     const pull = execSync('git pull')
-    console.log('restart')
     exit()
+
     return
   } else {
     return res.status(401).json({
