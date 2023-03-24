@@ -28,6 +28,7 @@ import config from './config.js'
 
 import { exec, execSync } from 'child_process'
 import { exit } from 'process'
+import { createHmac } from 'crypto'
 
 const classMap = {
   img: 'rounded-xl transition-all duration-300 shadow-xl transform hover:-translate-y-2',
@@ -97,10 +98,21 @@ app.get('/', (req, res) => {
 })
 
 app.post('/gitpull', async (req, res) => {
-  console.log(req)
+  let sig =
+    'sha1=' + createHmac('sha1', config.key).update(req.rawBody).digest('hex')
 
-  if (req.query.password == config.key) {
+  if (req.headers['x-hub-signature'] == sig) {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
+
+    const pull = execSync('git pull')
+    exit()
+    return
+  } else {
+    return res.status(401).json({
+      ok: false,
+      message_for_cunt: 'little shit this is my job',
+      ps: 'fuck off',
+    })
   }
 })
 
