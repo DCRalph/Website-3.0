@@ -105,6 +105,7 @@ app.post('/gitpull', async (req, res) => {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
 
     const pull = execSync('git pull')
+    console.log('restart')
     exit()
     return
   } else {
