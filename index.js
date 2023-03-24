@@ -19,10 +19,14 @@ appSocial.set('views', './views')
 
 import showdown from 'showdown'
 
-const config = {
-  port: 4191,
-  port_social: 4192,
-}
+// const config = {
+//   port: 4191,
+//   port_social: 4192,
+// }
+
+import config from './config.js'
+
+import { exec, execSync } from 'child_process'
 
 const classMap = {
   img: 'rounded-xl transition-all duration-300 shadow-xl transform hover:-translate-y-2',
@@ -91,6 +95,23 @@ app.get('/', (req, res) => {
   return res.render('index', data)
 })
 
+app.get('/gitpull', async (req, res) => {
+  if (req.query.password == config.key) {
+    res.status(200).json({ ok: true, message: 'git pull and restarting' })
+
+    const pull = execSync('ls')
+    const restart = exec('sudo systemctl restart website.service')
+
+    return
+  } else {
+    return res.status(401).json({
+      ok: false,
+      message_for_cunt: 'little shit this is my job',
+      ps: 'fuck off',
+    })
+  }
+})
+
 app.get('/icon.png', (req, res) => {
   return res.status(200).sendFile(__dirname + '/files/logo.png')
 })
@@ -143,7 +164,7 @@ app.get('/link:x(*)', (req, res) => {
     })
   }
 
-  return res.status(404).json({ msg: '404 File Not Found', linkID })
+  return res.status(404).json({ ok: false, msg: '404 Not Found', linkID })
 })
 
 appSocial.get('/:x(*)', (req, res) => {
@@ -156,7 +177,7 @@ appSocial.get('/:x(*)', (req, res) => {
     })
   }
 
-  return res.status(404).json({ msg: '404 File Not Found', linkID })
+  return res.status(404).json({ ok: false, msg: '404 Not Found', linkID })
 })
 
 app.get('/*', (req, res) => {
@@ -173,6 +194,6 @@ var server = app.listen(config.port, () => {
   console.log(server.address())
 })
 
-var serverSocial = appSocial.listen(config.port_social, () => {
+var serverSocial = appSocial.listen(config.port2, () => {
   console.log(serverSocial.address())
 })
