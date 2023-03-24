@@ -99,9 +99,9 @@ app.get('/', (req, res) => {
 
 app.post('/gitpull', async (req, res) => {
   let sig =
-    'sha1=' +
-    createHmac('sha1', config.key)
-      .update(JSON.stringify(req.body))
+    'sha256=' +
+    createHmac('sha256', config.key)
+      .update(Buffer.from(req.body, 'utf8'))
       .digest('hex')
 
   if (req.headers['x-hub-signature'] == sig) {
