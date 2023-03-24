@@ -100,7 +100,7 @@ app.get('/gitpull', async (req, res) => {
   if (req.query.password == config.key) {
     res.status(200).json({ ok: true, message: 'git pull and restarting' })
 
-    const pull = execSync('ls')
+    const pull = execSync('git pull')
     exit()
 
     return
