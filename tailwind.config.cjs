@@ -6,6 +6,9 @@ module.exports = {
         primary: '#da22ff',
         secondary: '#9733ee',
       },
+      screens: {
+        xs: '440px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
