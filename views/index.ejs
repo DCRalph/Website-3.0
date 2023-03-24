@@ -380,7 +380,7 @@
         document.querySelectorAll('.animatable').forEach((element) => {
           observer.observe(element)
         })
-      }, 1500)
+      }, 1000)
 
       let warpSpeedObject = new WarpSpeed('canvas', {
         targetSpeed: 10,
@@ -392,7 +392,7 @@
 
       setTimeout(() => {
         warpSpeedObject.TARGET_SPEED = 1
-      }, 1500)
+      }, 1000)
 
       const toTop = document.querySelector('#toTop')
       const nav1 = document.querySelector('#nav1')
