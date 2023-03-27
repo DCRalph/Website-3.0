@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./views/*', './index.js', './social.json'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {

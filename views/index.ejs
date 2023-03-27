@@ -47,8 +47,10 @@
     </script>
   </head>
 
-  <body class="antialiased">
-    <canvas id="canvas" class="fixed top-0 left-0 w-full h-full -z-20"></canvas>
+  <body class="antialiased dark bg-[#0e0024]">
+    <canvas
+      id="warpSpeedCanvas"
+      class="fixed top-0 left-0 w-full h-full -z-20 hidden"></canvas>
     <nav
       class="flex fixed justify-evenly items-center w-full mb-8 px-16 bottom-0 z-20 transition-all duration-300 transform translate-y-0 md:translate-y-28">
       <div
@@ -193,7 +195,7 @@
     <a
       href="#home"
       id="toTop"
-      class="fixed bottom-12 right-2 md:bottom-8 md:right-8 transition-all duration-300 transform translate-y-24 md:translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 sm:hover:ring-4 sm:active:ring-8 ring-blue-800 w-12 h-12 z-20 group">
+      class="fixed bottom-12 right-2 md:bottom-8 md:right-8 transition-all duration-300 transform translate-y-24 md:translate-y-20 rounded-full flex justify-center items-center cursor-pointer text-2xl bg-blue-600 active:ring-4 sm:hover:ring-4 sm:active:ring-8 ring-blue-700 w-12 h-12 z-20 group">
       <div class="text-white opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -209,6 +211,36 @@
         </svg>
       </div>
     </a>
+
+    <button
+      class="fixed z-20 -bottom-[4.5rem] rounded-t-lg flex flex-col items-center left-4 bg-blue-600 opacity-50 hover:opacity-100 border-2 border-blue-500 h-24 w-10 hover:w-20 transition-all duration-300 transform hover:-translate-y-[4.5rem]"
+      id="toggleButton">
+      <div class="text-white opacity-100 pointer-events-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+      </div>
+      <div class="text-md text-white pointer-events-none">Stars</div>
+      <label
+        class="relative inline-flex pointer-events-auto items-center mt-2 cursor-pointer">
+        <input
+          id="warpSpeedToggle"
+          type="checkbox"
+          value=""
+          class="sr-only peer" />
+        <div
+          class="w-11 h-6 rounded-full peer bg-gray-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-600 transition-all"></div>
+      </label>
+    </button>
 
     <section
       class="h-40 md:h-80 lg:h-[28rem] flex flex-col items-center justify-center"
@@ -238,7 +270,7 @@
       <div class="flex flex-wrap justify-center gap-4">
         <% about.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
+          class="p-4 h-min w-[32rem] prose prose-invert prose-sm md:prose-base lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -256,7 +288,7 @@
       <div class="flex flex-wrap justify-center gap-4">
         <% projects.forEach(function(post){ %>
         <div
-          class="p-4 h-min prose prose-invert prose-sm md:prose-base box lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
+          class="p-4 w-[32rem] h-min prose prose-invert prose-sm md:prose-base box lg:prose-lg bg-gray-900 border-2 border-gray-700 rounded-lg animatable">
           <%- post.content %>
         </div>
         <% }); %>
@@ -349,6 +381,68 @@
     <!-- <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> -->
 
     <script>
+      const warpSpeedToggle = document.querySelector('#warpSpeedToggle')
+      const warpSpeedCanvas = document.querySelector('#warpSpeedCanvas')
+      let warpSpeedEn = localStorage.getItem('warpSpeed')
+      const warpSpeedEnBtn = document.querySelector('#toggleButton')
+
+      const toTop = document.querySelector('#toTop')
+      const nav1 = document.querySelector('#nav1')
+
+      let warpSpeedObject = null
+
+      const enableWarpSpeed = () => {
+        if (warpSpeedObject != null) return
+        warpSpeedEn = true
+        warpSpeedCanvas.classList.remove('hidden')
+
+        warpSpeedObject = new WarpSpeed('warpSpeedCanvas', {
+          targetSpeed: 10,
+          speedAdjFactor: 0.07,
+          shape: 'circle',
+          backgroundColor: 'hsl(263, 100%, 7%)',
+        })
+
+        setTimeout(() => {
+          warpSpeedObject.TARGET_SPEED = 1
+        }, 1000)
+      }
+
+      const dissableWarpSpeed = () => {
+        if (warpSpeedObject == null) return
+        warpSpeedEn = false
+        warpSpeedCanvas.classList.add('hidden')
+
+        warpSpeedObject.destroy()
+        warpSpeedObject = null
+      }
+
+      console.log(warpSpeedEn)
+
+      if (warpSpeedEn == null) {
+        localStorage.setItem('warpSpeed', true)
+        warpSpeedToggle.checked = true
+
+        enableWarpSpeed()
+      } else if (warpSpeedEn == 'true') {
+        warpSpeedToggle.checked = true
+
+        enableWarpSpeed()
+      } else if (warpSpeedEn == 'false') {
+        warpSpeedToggle.checked = false
+
+        dissableWarpSpeed()
+      }
+
+      warpSpeedToggle.addEventListener('click', () => {
+        let state = warpSpeedToggle.checked
+        localStorage.setItem('warpSpeed', state)
+        console.log(state)
+
+        if (state) enableWarpSpeed()
+        else dissableWarpSpeed()
+      })
+
       const map = (min1, max1, min2, max2, value) => {
         return ((value - min1) / (max1 - min1)) * (max2 - min2) + min2
       }
@@ -382,20 +476,6 @@
         })
       }, 300)
 
-      let warpSpeedObject = new WarpSpeed('canvas', {
-        targetSpeed: 10,
-        speedAdjFactor: 0.07,
-        shape: 'circle',
-        backgroundColor: 'hsl(263, 100%, 7%)',
-      })
-
-      setTimeout(() => {
-        warpSpeedObject.TARGET_SPEED = 1
-      }, 1000)
-
-      const toTop = document.querySelector('#toTop')
-      const nav1 = document.querySelector('#nav1')
-
       document.onscroll = () => {
         // console.log(window.pageYOffset)
         if (window.pageYOffset >= 200) {
@@ -416,22 +496,24 @@
           nav1.classList.remove('backdrop-blur')
         }
 
-        let percet =
-          ((document.body.scrollTop || document.body.parentNode.scrollTop) /
-            (document.body.parentNode.scrollHeight -
-              document.body.parentNode.clientHeight)) *
-          100
+        if (warpSpeedObject != null) {
+          let percet =
+            ((document.body.scrollTop || document.body.parentNode.scrollTop) /
+              (document.body.parentNode.scrollHeight -
+                document.body.parentNode.clientHeight)) *
+            100
 
-        warpSpeedObject.BACKGROUND_COLOR = `hsl(263, 100%, ${map(
-          0,
-          100,
-          7,
-          25,
-          percet
-        )}%)`
-
-        // console.log(percet)
+          warpSpeedObject.BACKGROUND_COLOR = `hsl(263, 100%, ${map(
+            0,
+            100,
+            7,
+            25,
+            percet
+          )}%)`
+        }
       }
+
+      // console.log(percet)
     </script>
   </body>
 </html>
