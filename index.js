@@ -131,6 +131,10 @@ app.get('/gitpull', async (req, res) => {
   }
 })
 
+app.get('/robots.txt', (req, res) => {
+  return res.status(200).sendFile(__dirname + '/robots.txt')
+})
+
 app.get('/icon.png', (req, res) => {
   return res.status(200).sendFile(__dirname + '/files/logo.png')
 })
